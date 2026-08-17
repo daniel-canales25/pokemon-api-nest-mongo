@@ -15,14 +15,14 @@ export class Pokemon extends Document {
         unique: true,
         index: true, 
     })
-    name!: string;
+    name: string;
 
 
     @Prop({
         unique: true,
         index: true,
     })
-    no!: number;
+    no: number;
 }
 
 // Esta exportacion se usa en pokemon.module para su utilizacion en la app
