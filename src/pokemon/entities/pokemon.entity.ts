@@ -4,7 +4,7 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
 
-//Decorador para los Schemas de nestJS que define las tablas en Mongoo
+//Decorador para los Schemas de nestJS que define las tablas en Mongo
 @Schema()
 export class Pokemon extends Document {
 
