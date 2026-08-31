@@ -75,8 +75,22 @@ export class PokemonService {
     }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} pokemon`;
+  // El metodo remove del servicie estamos aplicando la creacion de CustomPipes
+  // se creo el Pipe parse-mongo-id-pipe para identificar si el id que se pasa por el controller
+  // en remove sea un id de mongo, sino muestra un BadRequestException
+  
+  async remove(id: string) {
+     // En este caso se usa deleteOne para evitar hacer mas consultas para verificar
+  //  si existe el MongoID va a borrar > 0
+    const {deletedCount} = await this.pokemonModel.deleteOne({ _id : id})
+    // Se puede desestructurar deletedCount de la consulta de borrar .deleteOne
+    //  para mostrar un contador de cuantos documentos fueron borrados si no borro ninguno
+    // muestra BadRequestException
+    if(deletedCount === 0) {
+      throw new BadRequestException(`Pokemon with id "${id}" not found`)
+    }
+    return;
+  
   }
 
   private handleExceptions(error: any){
