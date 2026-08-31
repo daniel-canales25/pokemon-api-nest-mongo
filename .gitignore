@@ -56,9 +56,7 @@ pids
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 #Base de datos local 
-mongo/
+/mongo
 *.log
 *.lock
-mongo/
-*.lock
-*.log
+
