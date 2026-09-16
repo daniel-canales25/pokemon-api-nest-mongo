@@ -17,7 +17,11 @@ async function bootstrap() {
       transformOptions: {
         // Evita que se transformen una propiedad a undefined en una query si no se ha escrito una propiedad 
         // al colocar  exposeUnserFields: false no se escribe la propiedad como undefined  
-        exposeUnsetFields: false
+        exposeUnsetFields: false,
+        //Esta propiedad transforma nuestros Dtos en el tipo de datos que esperamos como esta definido en dto
+        //ejemplo pagination.dto.ts usa number pero de los parametros solo recibimos strings
+        //aqui es util esta configuracion
+        enableImplicitConversion: true,
       }
     })
   )
